@@ -3,5 +3,4 @@ kind: Kustomization
 
 resources:
   - ../../base
-  - netbird-client.yaml
   - netbird-setup-external-secret.yaml

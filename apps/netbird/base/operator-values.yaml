@@ -1,0 +1,15 @@
+
+managementURL: https://api.netbird.io
+
+apiKeySecret:
+  name: netbird-api-key
+  key: NB_API_KEY
+ingress:
+  enabled: true
+  kubernetesAPI:
+    enabled: true
+  namespacedNetworks: false
+  allowAutomaticPolicyCreation: true
+  router:
+    enabled: true
+    replicas: 1

@@ -3,4 +3,13 @@ kind: Kustomization
 
 resources:
   - network-policy.yaml
-  
+  - nbsetupkey.yaml
+
+helmCharts:
+  - name: kubernetes-operator
+    repo: https://netbirdio.github.io/helms
+    version: 0.1.13
+    releaseName: netbird-operator
+    namespace: netbird
+    valuesFile: operator-values.yaml
+    includeCRDs: true
