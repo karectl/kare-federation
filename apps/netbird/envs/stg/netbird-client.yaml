@@ -36,7 +36,7 @@ spec:
           resources:
             requests:
               memory: "128Mi"
-              cpu: "500m"
+              cpu: "50m"
           securityContext:
             privileged: true
             runAsUser: 0
