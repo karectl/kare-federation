@@ -6,5 +6,5 @@ metadata:
 spec:
   managementURL: https://api.netbird.io
   secretKeyRef:
-    name: netbird-setup-secret
+    name: netbird-secret
     key: NB_SETUP_KEY

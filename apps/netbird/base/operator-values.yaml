@@ -3,7 +3,7 @@ managementURL: https://api.netbird.io
 
 netbirdAPI:
   keyFromSecret:
-    name: netbird-api-key
+    name: netbird-secret
     key: NB_API_KEY
 
 webhook:
