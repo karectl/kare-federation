@@ -19,3 +19,6 @@ ingress:
   router:
     enabled: true
     replicas: 1
+
+cluster:
+  name: vc-k8tre
