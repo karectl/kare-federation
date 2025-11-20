@@ -41,7 +41,7 @@ spec:
               value: "{{index .metadata.labels \"external-domain\"}}"
       destination:
         server: "{{.server}}"
-        namespace: default
+        namespace: netbird
       # ignoreDifferences:
       #   - group: postgresql.cnpg.io
       #     kind: Cluster
