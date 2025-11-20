@@ -1,9 +1,15 @@
 
 managementURL: https://api.netbird.io
 
-apiKeySecret:
-  name: netbird-api-key
-  key: NB_API_KEY
+netbirdAPI:
+  keyFromSecret:
+    name: netbird-api-key
+    key: NB_API_KEY
+
+webhook:
+  enableCertManager: true
+  failurePolicy: Fail
+
 ingress:
   enabled: true
   kubernetesAPI:
