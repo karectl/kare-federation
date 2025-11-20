@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: netbird
-  namespace: default
+  namespace: argocd
   labels:
     karectl.io/appset: netbird          
 spec:
