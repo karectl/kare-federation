@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: netbird
+spec:
+  selector:
+    matchLabels:
+      app: netbird
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: netbird
+    spec:
+      containers:
+        - name: netbird
+          image: netbirdio/netbird:latest
+        - name: NB_SETUP_KEY
+          valueFrom:
+            secretKeyRef:
+              name: netbird-setup-key
+              key: NB_SETUP_KEY
+          env:
+            - name: NB_HOSTNAME
+              value: "netbird-cluster-1"
+            - name: NB_LOG_LEVEL
+              value: "info"
+          volumeMounts:
+            - name: netbird-client
+              mountPath: /etc/netbird
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "500m"
+          securityContext:
+            privileged: true
+            runAsUser: 0
+            runAsGroup: 0
+            capabilities:
+              add:
+                - NET_ADMIN
+                - NET_RESOURCE
+                - SYS_ADMIN
+      volumes:
+        - name: netbird-client
+          emptyDir: {}
