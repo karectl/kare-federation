@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: gitea
-  namespace: argocd
+  name: netbird
+  namespace: default
   labels:
-    karectl.io/appset: gitea          
+    karectl.io/appset: netbird          
 spec:
   goTemplate: true
   goTemplateOptions: ["missingkey=error"]
@@ -15,7 +15,7 @@ spec:
               repoURL: https://github.com/karectl/karectl.git
               revision: main
               directories:
-                - path: apps/gitea/envs/*
+                - path: apps/netbird/envs/*
           - clusters:
               selector:
                 matchLabels:
@@ -41,14 +41,14 @@ spec:
               value: "{{index .metadata.labels \"external-domain\"}}"
       destination:
         server: "{{.server}}"
-        namespace: gitea
-      ignoreDifferences:
-        - group: postgresql.cnpg.io
-          kind: Cluster
-          name: gitea-postgres-cluster
-          jqPathExpressions:
-            - .spec.managed.roles[].connectionLimit
-            - .spec.managed.roles[].inherit
+        namespace: default
+      # ignoreDifferences:
+      #   - group: postgresql.cnpg.io
+      #     kind: Cluster
+      #     name: gitea-postgres-cluster
+      #     jqPathExpressions:
+      #       - .spec.managed.roles[].connectionLimit
+      #       - .spec.managed.roles[].inherit
       syncPolicy:
         automated:
           prune: true
