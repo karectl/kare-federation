@@ -4,6 +4,9 @@ kind: Kustomization
 resources:
   - network-policy.yaml
   - nbsetupkey.yaml
+  - nbsetupkey-jupyterhub.yaml
+  - external-secret.yaml
+  - external-secret-jupyterhub.yaml
 
 helmCharts:
   - name: kubernetes-operator
