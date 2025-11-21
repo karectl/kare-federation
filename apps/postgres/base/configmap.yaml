@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-init
+  namespace: postgres
+data:
+  sample.sql: |
+    CREATE TABLE IF NOT EXISTS users (
+        id SERIAL PRIMARY KEY,
+        username VARCHAR(50) UNIQUE NOT NULL,
+        email VARCHAR(100) UNIQUE NOT NULL
+    );
+    CREATE TABLE IF NOT EXISTS projects (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(100) NOT NULL,
+        description TEXT,
+        owner_id INTEGER REFERENCES users(id)
+    );
+    INSERT INTO users (username, email) VALUES
+        ('trevolution', ('trevolution'@k8tre.io'),
+        ('hackathon', ('hackathon@k8tre.io');
+    INSERT INTO projects (name, description, owner_id) VALUES
+        ('Diabetes Research', 'Analysis for diabetes', 1),
+        ('Asthma Analysis', 'Analysis outcomes data', 2);
