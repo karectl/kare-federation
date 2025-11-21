@@ -8,7 +8,7 @@ resources:
   - httproute.yaml
   - nbsetupkey.yaml
   - external-secret.yaml
-  - network-policy.yaml
+  # - network-policy.yaml
 
 commonLabels:
   app: tictactoe
