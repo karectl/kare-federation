@@ -54,6 +54,9 @@ metadata:
   namespace: tictactoe
   labels:
     app: tictactoe
+  annotations:
+    netbird.io/expose: "true"
+    netbird.io/groups: "tictactoe"
 spec:
   type: ClusterIP
   selector:
