@@ -1,0 +1,22 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: tictactoe-route
+  namespace: tictactoe
+  annotations:
+    xlscsde.nhs.uk/dns-record: tictactoe
+spec:
+  hostnames:
+    - tictactoe.${ENVIRONMENT}.k8tre.org
+  parentRefs:
+    - name: internal-gateway
+      namespace: gateway
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: tictactoe
+          namespace: tictactoe
+          port: 5000

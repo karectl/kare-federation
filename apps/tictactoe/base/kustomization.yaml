@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: tictactoe
+
+resources:
+  - deployment.yaml
+  - httproute.yaml
+  - nbsetupkey.yaml
+  - external-secret.yaml
+  - network-policy.yaml
+
+commonLabels:
+  app: tictactoe
