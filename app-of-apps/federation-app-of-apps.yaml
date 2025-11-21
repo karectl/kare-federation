@@ -34,7 +34,7 @@ spec:
               value: https://github.com/karectl/kare-federation.git
             - op: replace
               path: /spec/template/spec/sources/1/targetRevision
-              value: at-test
+              value: main
         - target:
             kind: ApplicationSet
             labelSelector: "karectl.io/source-type!=multiple"
@@ -44,7 +44,7 @@ spec:
               value: https://github.com/karectl/kare-federation.git
             - op: replace
               path: /spec/template/spec/source/targetRevision
-              value: at-test
+              value: main
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
